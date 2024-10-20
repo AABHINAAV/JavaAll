@@ -25,18 +25,3 @@ class Result {
         objScooter.start();
     }
 }
-
-/*
- * abstract is the on which has zero or more abstract methods
- * it should have abstract keyword before class keyword
- * 
- * abstract method is the one which does not have body
- * it is overridden by giving body in its child classes
- * 
- * abstract class cannot be instantiated
- * 
- * any class inherited from abstract is required to override all of its abatract methods
- * other wise it will become an abstract class
- * 
- * abtract class achieves 0 to 100% abstraction
- */

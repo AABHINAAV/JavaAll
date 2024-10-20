@@ -21,12 +21,6 @@ enum Mobile {
     }
 }
 
-// class Mobile{
-// static final Mobile Apple = new Mobile();
-// static final Mobile Samsung = new Mobile();
-// static final Mobile Honor = new Mobile();
-// }
-
 class Result {
     public static void main(String[] args) {
         Mobile obj = Mobile.Apple;
