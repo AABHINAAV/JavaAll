@@ -4,17 +4,29 @@ import java.util.function.Function;
 
 public class c_hof_using_function {
 
-  public static Integer fun(String str, Function<String, Integer> functionObj) {
+  public static Function<String, Integer> makeFunction() {
+    return str -> str.length();
+  }
+
+  public static Integer useFunction(String str, Function<String, Integer> functionObj) {
     return functionObj.apply(str);
   }
 
   public static void main(String[] args) {
-    Function<String, Integer> functionObj = str -> {
+    String s = "\nHigher Order Function Using Function";
+
+    //
+
+    Function<String, Integer> functionObj1 = str -> {
       return str.length();
     };
+    System.out.println("length : " + useFunction(s, functionObj1));
 
-    String str = "Higher Order Function Using Function";
+    // 
+    // 
+    // 
 
-    System.out.println("length : " + fun(str, functionObj));
+    Function<String, Integer> functionObj2 = makeFunction();
+    System.out.println("length : " + useFunction(s, functionObj2));
   }
 }

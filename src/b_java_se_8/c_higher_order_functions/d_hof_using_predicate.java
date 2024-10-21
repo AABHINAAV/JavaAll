@@ -5,41 +5,32 @@ import java.util.function.Predicate;
 
 public class d_hof_using_predicate {
 
-  public static boolean fun_predicate(
+  public static Predicate<String> makePredicate() {
+    return str -> str.length() > 10;
+  }
+
+  public static boolean usePredicate(
     String str,
     Predicate<String> predicateObj
   ) {
     return predicateObj.test(str);
   }
 
-  public static boolean fun_bipredicate(
-    String str1,
-    String str2,
-    BiPredicate<String, String> biPredicateObj
-  ) {
-    return biPredicateObj.test(str1, str2);
-  }
-
   public static void main(String[] args) {
-    Predicate<String> predicateObj = str -> {
+    String s = "Higer Order Function Using Predicate";
+
+    //
+
+    Predicate<String> predicateObj1 = str -> {
       return str.length() > 10;
     };
+    System.out.println("Predicate test : " + usePredicate(s, predicateObj1));
 
-    String str = "Higer Order Function Using Predicate";
+    //
+    //
+    //
 
-    System.out.println("Predicate test : " + fun_predicate(str, predicateObj));
-    //
-    //
-    //
-    //
-    //
-    BiPredicate<String, String> bipredicateObj = (str1, str2) -> {
-      return str1.length() > str2.length();
-    };
-
-    System.out.println(
-      "Bipredicate test : " +
-      fun_bipredicate("first name", "last name", bipredicateObj)
-    );
+    Predicate<String> predicateObj2 = makePredicate();
+    System.out.println("Predicate test : " + usePredicate(s, predicateObj2));
   }
 }

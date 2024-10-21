@@ -4,17 +4,29 @@ import java.util.function.Consumer;
 
 public class a_hof_using_consumer {
 
-  public static void fun(String str, Consumer<String> consumerObj) {
+  public static Consumer<String> makeConsumer() {
+    return str -> System.out.println(str);
+  }
+
+  public static void useConsumer(String str, Consumer<String> consumerObj) {
     consumerObj.accept(str);
   }
 
   public static void main(String[] args) {
-    Consumer<String> consumerObj = str -> {
+    String s = "\nHigher Order Function using Consumer";
+
+    //
+
+    Consumer<String> consumerObj1 = str -> {
       System.out.println(str);
     };
+    useConsumer(s, consumerObj1);
 
-    String str = "Higher Order Function using Consumer";
+    //
+    //
+    //
 
-    fun(str, consumerObj);
+    Consumer<String> consumerObj2 = makeConsumer();
+    useConsumer(s, consumerObj2);
   }
 }
