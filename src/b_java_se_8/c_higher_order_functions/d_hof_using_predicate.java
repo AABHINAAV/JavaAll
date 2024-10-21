@@ -1,6 +1,5 @@
 package b_java_se_8.c_higher_order_functions;
 
-import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class d_hof_using_predicate {
