@@ -1,6 +1,7 @@
 package b_java_se_8.d_stream_api;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -10,7 +11,8 @@ public class b_stream_intermediate_methods {
   public static void terminal_forEach_() {
     System.out.println("\nforEach() :-");
     Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
-    stream.forEach(e -> System.out.println(e));
+    // stream.forEach(e -> System.out.println(e));
+    stream.forEach(System.out::println);
   }
 
   public static void intermediate_filter_() {
@@ -30,8 +32,18 @@ public class b_stream_intermediate_methods {
   public static void intermediate_sorted_() {
     System.out.println("\nsorted() :-");
     Stream<Integer> stream = Stream.of(5, 1, 4, 2, 3);
-    List<Integer> res = stream.sorted().collect(Collectors.toList());
-    System.out.println(res);
+
+    List<Integer> res1 = stream.sorted().collect(Collectors.toList());
+    // List<Integer> res1 = stream.sorted((a, b) -> a.compareTo(b)).collect(Collectors.toList());
+    System.out.println(res1);
+
+    stream = Stream.of(5, 1, 4, 2, 3);
+    // List<Integer> res2 = stream.sorted((a, b) -> -a.compareTo(b)).collect(Collectors.toList());
+    // List<Integer> res2 = stream.sorted((a, b) -> b.compareTo(a)).collect(Collectors.toList());
+    List<Integer> res2 = stream
+      .sorted(Comparator.reverseOrder())
+      .collect(Collectors.toList());
+    System.out.println(res2);
   }
 
   public static void intermediate_distinct_() {
@@ -75,12 +87,11 @@ public class b_stream_intermediate_methods {
 
     // intermedicate_map_();
 
-    // intermediate_sorted_();
-
+    intermediate_sorted_();
     // intermediate_distinct_();
 
     // intermediate_limit_();
 
-    intermediate_flatMap_();
+    // intermediate_flatMap_();
   }
 }

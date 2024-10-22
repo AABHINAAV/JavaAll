@@ -25,8 +25,8 @@ class StreamCreation {
     //
 
     // converting an array into stream using static stream method of Arrays class
-    int[] val = { 1, 2, 3 };
-    IntStream s2 = Arrays.stream(val);
+    int[] arr = { 1, 2, 3 };
+    IntStream s2 = Arrays.stream(arr);
 
     System.out.println(s2);
     s2.forEach(i -> {
@@ -37,10 +37,8 @@ class StreamCreation {
     //
     //
 
-    Stream<String> s11 = (Stream) Arrays.stream(
-      new String[] { "a", "b", "c", "d" }
-    );
-    Stream<Integer> s21 = (Stream) Arrays.stream(new Integer[] { 1, 2, 3, 4 });
+    Stream<String> s11 = Arrays.stream(new String[] { "a", "b", "c", "d" });
+    Stream<Integer> s21 = Arrays.stream(new Integer[] { 1, 2, 3, 4 });
 
     s11.forEach(i -> {
       System.out.println(i);

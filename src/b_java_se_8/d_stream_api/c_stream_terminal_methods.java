@@ -29,9 +29,10 @@ public class c_stream_terminal_methods {
 
     Optional<Integer> minNumber = numbers
       .stream()
-      .min((i, j) -> i.compareTo(j));
-    // find the minimum element in a stream based on a specified comparator
-    // max of stream api works same but finds max
+      .min((i, j) -> j.compareTo(i));
+    // it returns the 1st element from the stream obtained from comparator result
+    // max of stream api works same but returns the last element
+    // comparator is sorting in descending order
 
     minNumber.ifPresent(minNum -> System.out.println(minNum));
   }
