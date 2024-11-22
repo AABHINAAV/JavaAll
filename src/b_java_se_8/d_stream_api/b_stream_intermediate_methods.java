@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class b_stream_intermediate_methods {
@@ -62,6 +63,14 @@ public class b_stream_intermediate_methods {
     // returns a stream of size maximum 5 with first 5 elements of stream
     // if less elements presnet in stream then less are returned in result
     System.out.println(limitedStream);
+
+    //
+    //
+    //
+    // sum of first 5 numbers
+    stream = Stream.iterate(1, n -> n + 2);
+    Integer sumOfFirst5 = stream.limit(5).reduce((a, b) -> a + b).get();
+    System.out.println(sumOfFirst5);
   }
 
   public static void intermediate_flatMap_() {
@@ -80,6 +89,22 @@ public class b_stream_intermediate_methods {
     System.out.println(flattenedStream);
   }
 
+  public static void intermediate_skip() {
+    int[] array = new int[10];
+    Arrays.setAll(array, i -> i + 1);
+
+    System.out.println(array);
+
+    List<Integer> result = Arrays
+      .stream(array)
+      .limit(5) // returns IntStream
+      .skip(2) // returns IntStream
+      .boxed() // convert from IntStream to Stream<Integer>
+      .toList(); // convert from Stream<Integer> to List<Integer>
+
+    System.out.println(result);
+  }
+
   public static void main(String[] args) {
     // terminal_forEach_();
 
@@ -87,11 +112,14 @@ public class b_stream_intermediate_methods {
 
     // intermedicate_map_();
 
-    intermediate_sorted_();
+    // intermediate_sorted_();
+
     // intermediate_distinct_();
 
     // intermediate_limit_();
 
     // intermediate_flatMap_();
+
+    intermediate_skip();
   }
 }

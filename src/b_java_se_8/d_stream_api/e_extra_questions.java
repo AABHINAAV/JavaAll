@@ -32,14 +32,14 @@ public class e_extra_questions {
     };
 
     // List<String> res = names
-    //   .stream()
-    //   .sorted(comparatorObj)
-    //   .collect(Collectors.toList());
-
-    // List<String> res = names
     // .stream()
     // .sorted((name1, name2) -> Integer.compare(name1.length(), name2.length()))
     // .collect(Collectors.toList());
+
+    // List<String> res = names
+    //   .stream()
+    //   .sorted(comparatorObj)
+    //   .collect(Collectors.toList());
 
     List<String> res = names
       .stream()
@@ -47,9 +47,31 @@ public class e_extra_questions {
       .collect(Collectors.toList());
 
     System.out.println(res);
+
+    // sorting in reverse order
+    List<String> res2 = names
+      .stream()
+      // .sorted((name1, name2) -> Integer.compare(name2.length(), name1.length()))
+      .sorted(Comparator.comparingInt(String::length).reversed())
+      .collect(Collectors.toList());
+    System.out.println(res2);
+  }
+
+  public static void sortStrings() {
+    List<String> names = Arrays.asList(
+      "Abhinav",
+      "Shristi Kataria",
+      "Avi",
+      "Bhavya"
+    );
+
+    List<String> result = names.stream().sorted().collect(Collectors.toList());
+
+    System.out.println(result);
   }
 
   public static void main(String[] args) {
-    sortOnBasisOfStringLength();
+    // sortOnBasisOfStringLength();
+    sortStrings();
   }
 }

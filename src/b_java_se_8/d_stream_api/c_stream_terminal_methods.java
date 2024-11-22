@@ -13,6 +13,9 @@ public class c_stream_terminal_methods {
     // It takes an initial value and a binary operator, and applies the operator to the initial value
     // and each element of the stream to produce a final result.
     System.out.println(sum);
+
+    sum = numbers.stream().reduce(1, (a, b) -> a * b);
+    System.out.println(sum);
   }
 
   public static void terminal_count_() {
@@ -38,10 +41,10 @@ public class c_stream_terminal_methods {
   }
 
   public static void main(String[] args) {
-    // terminal_reduce_();
+    terminal_reduce_();
 
     // terminal_count_();
 
-    terminal_min_();
+    // terminal_min_();
   }
 }
