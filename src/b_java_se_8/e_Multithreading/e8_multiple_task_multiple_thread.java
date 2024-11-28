@@ -1,4 +1,4 @@
-package c_Thread;
+package b_java_se_8.e_Multithreading;
 
 class Task1 implements Runnable {
 
@@ -24,7 +24,7 @@ class Task3 implements Runnable {
   }
 }
 
-public class C6_3_multiple_task_multiple_thread {
+public class e8_multiple_task_multiple_thread {
 
   public static void main(String[] args) {
     Task1 task1 = new Task1();

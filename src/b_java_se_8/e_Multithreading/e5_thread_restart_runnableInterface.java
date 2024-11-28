@@ -1,0 +1,24 @@
+package b_java_se_8.e_Multithreading;
+
+public class e5_thread_restart_runnableInterface {
+
+  public static class Test implements Runnable {
+
+    @Override
+    public void run() {
+      Thread cuThread = new Thread();
+      System.out.println("created thread : " + cuThread.getName());
+    }
+  }
+
+  public static void main(String[] args) {
+    Test test = new Test();
+
+    Thread t1 = new Thread(test);
+    t1.start();
+    t1.start();  // illegalThreadStateException
+
+    Thread t2 = new Thread(test);
+    t2.start();
+  }
+}
