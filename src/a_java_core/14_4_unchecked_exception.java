@@ -9,7 +9,7 @@ class UserDefinedRuntimeException extends RuntimeException {
 
 class Result {
 
-  public static void fun() throws UserDefinedException {
+  public static void fun() throws UserDefinedRuntimeException {
     throw new UserDefinedRuntimeException("hello");
   }
 

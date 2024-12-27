@@ -1,4 +1,4 @@
-// handling predefined checked exception using try catch and throw
+// handling predefined checked exception using try catch
 
 class Result {
 
