@@ -1,13 +1,13 @@
-package b_java_se_8.e_Multithreading;
+package b_java_se_8.e_Multithreading.a_base;
 
 public class e13_4_thread_methods extends Thread {
 
   @Override
   public void run() {
     try {
-      Thread curThread = new Thread("side thread");
+      Thread.currentThread().setName("\nside thread");
       Thread.sleep(2000);
-      System.out.println(curThread.getName());
+      System.out.println(Thread.currentThread().getName());
     } catch (InterruptedException e) {
       System.out.println(e);
     }

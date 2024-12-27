@@ -6,13 +6,14 @@ import java.util.List;
 class A4_SafeVarargs {
 
   @SafeVarargs
-  //	@SuppressWarnings("all")
+  // @SuppressWarnings("unchecked")
   final void display(List<String>... p) {
     for (List<String> x : p) {
       System.out.println(x);
     }
   }
 
+  // @SuppressWarnings("unchecked")
   public static void main(String[] args) {
     List<String> l = new ArrayList<String>();
     l.add("a");

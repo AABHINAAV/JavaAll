@@ -1,6 +1,6 @@
-package c_Thread.DaemonThread;
+package b_java_se_8.e_Multithreading.a_base;
 
-public class D1_daemonThread extends Thread {
+public class e16_daemon_thread_3 extends Thread {
 
   @Override
   public void run() {
@@ -12,9 +12,9 @@ public class D1_daemonThread extends Thread {
   }
 
   public static void main(String[] args) {
-    // System.out.println("Main Thread");
-    // D1_daemonThread t = new D1_daemonThread();
-    // t.start();
+    System.out.println("Main Thread");
+    e16_daemon_thread_3 t = new e16_daemon_thread_3();
+    t.start();
     // Main Thread
     // Child Thread
     //
@@ -23,7 +23,7 @@ public class D1_daemonThread extends Thread {
     //
     //
     // System.out.println("Main Thread");
-    // D1_daemonThread t = new D1_daemonThread();
+    // e16_daemon_thread_3 t = new e16_daemon_thread_3();
     // t.setDaemon(true);
     // t.start();
     // Main Thread
@@ -34,16 +34,14 @@ public class D1_daemonThread extends Thread {
     //
     //
     // System.out.println("Main Thread");
-    // D1_daemonThread t = new D1_daemonThread();
+    // e16_daemon_thread_3 t = new e16_daemon_thread_3();
     // t.start();
     // t.setDaemon(true);
     /*
         Main Thread
         Child Thread
         Exception in thread "main" java.lang.IllegalThreadStateException
-        at java.base/java.lang.Thread.setDaemon(Thread.java:1403)
-        at c_Thread.DaemonThread.D1_daemonThread.main(D1_daemonThread.java:39)
-     */
+    */
     //
     //
     //
@@ -52,18 +50,18 @@ public class D1_daemonThread extends Thread {
     // Thread currentThread = Thread.currentThread();
     // System.out.println(currentThread.getName());
     // currentThread.setDaemon(true);
-    // main
-    // Exception in thread "main" java.lang.IllegalThreadStateException
-    // at java.base/java.lang.Thread.setDaemon(Thread.java:1403)
-    // at c_Thread.DaemonThread.D1_daemonThread.main(D1_daemonThread.java:54)
+    /*
+        main
+        Exception in thread "main" java.lang.IllegalThreadStateException
+    */
     //
     //
     //
     //
     //
-    D1_daemonThread t = new D1_daemonThread();
-    t.setDaemon(true);
-    t.start();
+    // e16_daemon_thread_3 t = new e16_daemon_thread_3();
+    // t.setDaemon(true);
+    // t.start();
     /*
      * daemon thread is built to provide service to main thread
      * but main thread is started but not doing anything

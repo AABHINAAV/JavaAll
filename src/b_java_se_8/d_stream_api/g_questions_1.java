@@ -13,57 +13,56 @@ public class g_questions_1 {
   public static void find_max_salary() {
     List<Employee> emps = Employee.createData();
 
-    // method 1 : using comparator in collect()
-    Optional<Employee> res1 = emps
+    // method 1 : creating our own comparator for max() at that point
+    Employee res1 = emps
       .stream()
-      .collect(
-        Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))
-      );
+      .max((Employee emp1, Employee emp2) ->
+        emp1.getSalary().compareTo(emp2.getSalary())
+      )
+      .get();
     System.out.println(res1);
 
-    // method 2 : using comparing double method comparator
+    // method 2 : creating our own comparator for max() at that point using Double class
     Employee res2 = emps
       .stream()
-      .max(Comparator.comparingDouble(Employee::getSalary))
+      .max((Employee emp1, Employee emp2) ->
+        Double.compare(emp1.getSalary(), emp2.getSalary())
+      )
       .get();
     System.out.println(res2);
 
-    // method 3 : creating our own comparator for max()
+    // method 3 : creating comparator using comparingDouble() of Comparator class
     Employee res3 = emps
       .stream()
-      .max((emp1, emp2) -> emp1.getSalary().compareTo(emp2.getSalary()))
+      .max(Comparator.comparing(Employee::getSalary))
       .get();
     System.out.println(res3);
-    //
-    //
-    // using max method is best
   }
 
   public static void find_min_salary() {
     List<Employee> emps = Employee.createData();
 
-    // method 1 : using comparator in collect()
+    // method 1 : creating our own comparator for max() at that point
     Optional<Employee> res1 = emps
       .stream()
-      .collect(
-        Collectors.minBy(Comparator.comparingDouble(Employee::getSalary))
+      .min((Employee emp1, Employee emp2) ->
+        emp1.getSalary().compareTo(emp2.getSalary())
       );
     System.out.println(res1);
 
-    // method 2 : using comparing double method comparator
+    // method 2 : creating our own comparator for max() at that point using Double class
     Optional<Employee> res2 = emps
       .stream()
-      .min(Comparator.comparingDouble(Employee::getSalary));
+      .min((Employee emp1, Employee emp2) ->
+        Double.compare(emp1.getSalary(), emp2.getSalary())
+      );
     System.out.println(res2);
 
-    // method 3 : creating our own comparator for max()
+    // method 3 : creating comparator using comparingDouble() of Comparator class
     Optional<Employee> res3 = emps
       .stream()
-      .min((emp1, emp2) -> emp1.getSalary().compareTo(emp2.getSalary()));
+      .min(Comparator.comparingDouble(Employee::getSalary));
     System.out.println(res3);
-    //
-    //
-    // using max method is best
   }
 
   public static void find_second_max_min_salary() {
@@ -72,7 +71,9 @@ public class g_questions_1 {
     // second max salary
     Optional<Employee> secondMaxSalEmp = emps
       .stream()
-      .sorted((emp1, emp2) -> -emp1.getSalary().compareTo(emp2.getSalary()))
+      .sorted((Employee emp1, Employee emp2) ->
+        -emp1.getSalary().compareTo(emp2.getSalary())
+      )
       // .sorted(Comparator.comparing(Employee::getSalary).reversed())
       .skip(1)
       .findFirst();
@@ -81,13 +82,15 @@ public class g_questions_1 {
     // second min Salary
     Optional<Employee> secondMinSalEmp = emps
       .stream()
-      .sorted((emp1, emp2) -> emp1.getSalary().compareTo(emp2.getSalary()))
+      .sorted((Employee emp1, Employee emp2) ->
+        emp1.getSalary().compareTo(emp2.getSalary())
+      )
       // .sorted(Comparator.comparing(Employee::getSalary))
       .skip(1)
       .findFirst();
     System.out.println(secondMinSalEmp);
-    // 
-    // 
+    //
+    //
     // simply add distinct() after stream if directly working on int[]
   }
 
@@ -97,17 +100,20 @@ public class g_questions_1 {
     // method 1 : by sorting
     Optional<Employee> res1 = emps
       .stream()
-      // .sorted(Comparator.comparing(Employee::getJoiningDate)) // using Comparator class for comparator
       .sorted((emp1, emp2) ->
         emp1.getJoiningDate().compareTo(emp2.getJoiningDate())
       ) // making comparator
+      // .sorted(Comparator.comparing(Employee::getJoiningDate)) // using Comparator class for comparator
       .findFirst();
     System.out.println(res1);
 
     // method 2 : using min method
     Optional<Employee> res2 = emps
       .stream()
-      .min(Comparator.comparing(Employee::getJoiningDate));
+      .min((Employee emp1, Employee emp2) ->
+        emp1.getJoiningDate().compareTo(emp2.getJoiningDate())
+      ); // making comparator
+    // .min(Comparator.comparing(Employee::getJoiningDate));
     System.out.println(res2);
   }
 

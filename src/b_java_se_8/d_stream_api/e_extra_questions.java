@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class e_extra_questions {
 
-  public static void sortOnBasisOfStringLength() {
+  public static void simpleSorting() {
     List<String> names = Arrays.asList(
       "Abhinav",
       "Shristi Kataria",
@@ -15,10 +15,42 @@ public class e_extra_questions {
       "Bhavya"
     );
 
-    // using comparator for custom sorting
-    Comparator<String> comparatorObj = (name1, name2) -> {
-      int len1 = name1.length();
-      int len2 = name2.length();
+    // sorting on basis of alphabets in names
+    List<String> result1 = names.stream().sorted().collect(Collectors.toList());
+    System.out.println(result1);
+
+    //
+    //
+    //
+
+    // sorting on basis of lengths of names
+    List<String> result2 = names
+      .stream()
+      // .sorted(
+      //   (name1, name2) -> name1.length().compareTo(name2.length())
+      // ) // compareTo() cannot be invoked on primitive
+      .sorted((name1, name2) -> Integer.compare(name1.length(), name2.length()))
+      .toList();
+    System.out.println(result2);
+  }
+
+  public static void sortOnBasisOfSalary() {
+    List<Employee> emps = Employee.createData();
+
+    List<Employee> result = emps
+      .stream()
+      // .sorted((emp1, emp2) -> emp1.getSalary().compareTo(emp2.getSalary()))
+      // .sorted(Comparator.comparingDouble(Employee::getSalary))
+      .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
+      .collect(Collectors.toList());
+
+    System.out.println(result);
+  }
+
+  public static Comparator<Employee> getComparator() {
+    Comparator<Employee> comparatorObj = (emp1, emp2) -> {
+      int len1 = emp1.getName().length();
+      int len2 = emp2.getName().length();
 
       //   if (len1 < len2) {
       //     return -1;
@@ -31,47 +63,78 @@ public class e_extra_questions {
       return Integer.compare(len1, len2);
     };
 
-    // List<String> res = names
-    // .stream()
-    // .sorted((name1, name2) -> Integer.compare(name1.length(), name2.length()))
-    // .collect(Collectors.toList());
-
-    // List<String> res = names
-    //   .stream()
-    //   .sorted(comparatorObj)
-    //   .collect(Collectors.toList());
-
-    List<String> res = names
-      .stream()
-      .sorted(Comparator.comparingInt(String::length))
-      .collect(Collectors.toList());
-
-    System.out.println(res);
-
-    // sorting in reverse order
-    List<String> res2 = names
-      .stream()
-      // .sorted((name1, name2) -> Integer.compare(name2.length(), name1.length()))
-      .sorted(Comparator.comparingInt(String::length).reversed())
-      .collect(Collectors.toList());
-    System.out.println(res2);
+    return comparatorObj;
   }
 
-  public static void sortStrings() {
-    List<String> names = Arrays.asList(
-      "Abhinav",
-      "Shristi Kataria",
-      "Avi",
-      "Bhavya"
-    );
+  public static void sortOnBasisOfStringLength() {
+    List<Employee> emps = Employee.createData();
 
-    List<String> result = names.stream().sorted().collect(Collectors.toList());
+    // creating comparator at same point
+    List<Employee> res1 = emps
+      .stream()
+      // .sorted(
+      //   (emp1, emp2) -> emp1.getName().length().compareTo(emp2.getName().length())
+      // )  // cannot be invoked on primitive types
+      .sorted((emp1, emp2) ->
+        Integer.compare(emp1.getName().length(), emp2.getName().length())
+      )
+      .collect(Collectors.toList());
+    // System.out.println("res1 : " + res1);
 
-    System.out.println(result);
+    //
+    //
+    //
+
+    // using comparingInt() to create comparator
+    List<Employee> res2 = emps
+      .stream()
+      .sorted(Comparator.comparingInt(emp -> emp.getName().length()))
+      .collect(Collectors.toList());
+    // System.out.println("res2 : " + res2);
+
+    //
+    //
+    //
+
+    // using comparing() to create comparator
+    List<Employee> res3 = emps
+      .stream()
+      .sorted(Comparator.comparing(emp -> emp.getName().length()))
+      .collect(Collectors.toList());
+    // System.out.println("res3 : " + res3);
+
+    //
+    //
+    //
+
+    // same as first one but taking comparator in a method outside
+    List<Employee> res4 = emps
+      .stream()
+      .sorted(getComparator())
+      .collect(Collectors.toList());
+    // System.out.println("res4 : " + res4);
+
+    //
+    //
+    //
+
+    // using comparing() to create comparator
+    List<Employee> res5 = emps
+      .stream()
+      .sorted(
+        Comparator.comparing((Employee e) -> e.getName().length()).reversed()
+      ) // during multiple methods in comparator datatype like employee is necessary to provide
+      // otherwise it will take it as Object which will not have getName
+      // incase of adding reversed()
+      .collect(Collectors.toList());
+    System.out.println("res5 : " + res5);
   }
 
   public static void main(String[] args) {
-    // sortOnBasisOfStringLength();
-    sortStrings();
+    // simpleSorting();
+
+    // sortOnBasisOfSalary();
+
+    sortOnBasisOfStringLength();
   }
 }

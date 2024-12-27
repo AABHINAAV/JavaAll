@@ -4,13 +4,15 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-class Employee {
+public class Employee {
 
   private String name;
   private Double salary;
   private LocalDate joiningDate;
   private String gender;
   private String active;
+
+  public Employee() {}
 
   public Employee(
     String name,

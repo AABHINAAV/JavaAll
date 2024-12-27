@@ -18,16 +18,9 @@ public class c_print_odd_even {
 
     List<Integer> evenNumbers = list
       .stream() // creating stream
-      .filter(e -> (e & 1) == 0) // checking for odd
+      .filter(e -> (e & 1) == 0) // checking for even
       .collect(Collectors.toList()); // collecting in list
 
     System.out.println("odds : " + evenNumbers);
-
-    List<Integer> result = list
-      .stream()
-      .map(String::valueOf)
-      .filter(e -> e.startsWith("2"))
-      .map(Integer::valueOf)
-      .collect(Collectors.toList());
   }
 }

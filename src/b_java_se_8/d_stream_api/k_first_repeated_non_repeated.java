@@ -24,7 +24,7 @@ public class k_first_repeated_non_repeated {
       .collect(
         Collectors.groupingBy(
           Function.identity(),
-          LinkedHashMap::new,
+          LinkedHashMap::new, // added so to maintain the order of character
           Collectors.counting()
         )
       );

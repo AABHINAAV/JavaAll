@@ -64,6 +64,8 @@ class MyClass2 {
 //
 //
 //
-interface InterfaceName {}
+interface SavingData {}
 
-class ClassName implements InterfaceName {}
+class SaveDataInLocal implements SavingData {}
+
+class SaveDataInAzure implements SavingData {}

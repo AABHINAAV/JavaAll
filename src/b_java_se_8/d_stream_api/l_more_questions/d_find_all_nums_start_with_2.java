@@ -11,8 +11,10 @@ public class d_find_all_nums_start_with_2 {
 
     List<Integer> result = list
       .stream()
+      // .map(e -> String.valueOf(e))
       .map(String::valueOf)
       .filter(e -> e.startsWith("2"))
+      // .map(e -> Integer.valueOf(e))
       .map(Integer::valueOf)
       .collect(Collectors.toList());
 

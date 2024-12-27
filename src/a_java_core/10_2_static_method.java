@@ -1,37 +1,41 @@
-class Result {
-    int a = 10;
-    static int b = 20;
+class Parent {
 
-    void fun1() {
-        System.out.println(a);
-        System.out.println(Result.b);
-    }
+  int x = 10;
+}
 
-    static void fun2() {
-        // System.out.println(a);
-        // static cannot access non-static class variable
-        System.out.println(Result.b);
-    }
+class Result extends Parent {
 
-    /////
-    void display1() {
-        System.out.println("non static method");
-    }
+  int a = 10;
+  static int b = 20;
 
-    static void display2() {
-        System.out.println("static method");
-    }
+  void dummy_nonStaticMethod() {}
 
-    void fun3() {
-        display1();
-        display2();
-        Result.display2();
-    }
+  static void dummy_staticMethod() {}
 
-    static void fun4() {
-        // display1();
-        // static method cannot call non static method
-        display2();
-        Result.display2();
-    }
+  void fun1() {
+    System.out.println(a);
+    System.out.println(Result.b);
+
+    dummy_nonStaticMethod();
+    dummy_staticMethod();
+
+    System.out.println(this.a);
+    System.out.println(super.x);
+  }
+
+  static void fun2() {
+    // System.out.println(a);
+    // static cannot access non-static class variable
+    System.out.println(Result.b);
+
+    // dummy_nonStaticMethod();
+    // it cannot access non-static method
+    dummy_staticMethod();
+    Result.dummy_staticMethod();
+    // System.out.println(this.a);
+    // cannot use this keyword
+
+    // System.out.println(super.x);
+    // cannot use super keyword
+  }
 }

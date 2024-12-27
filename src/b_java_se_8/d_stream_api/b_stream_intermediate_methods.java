@@ -69,12 +69,14 @@ public class b_stream_intermediate_methods {
     //
     // sum of first 5 numbers
     stream = Stream.iterate(1, n -> n + 2);
-    Integer sumOfFirst5 = stream.limit(5).reduce((a, b) -> a + b).get();
+    Integer sumOfFirst5 = stream.limit(5).reduce(0, (a, b) -> a + b);
     System.out.println(sumOfFirst5);
   }
 
   public static void intermediate_flatMap_() {
     System.out.println("\nflatMap() :-");
+
+    // List<Integer> lst = Arrays.asList(1,2,3,4);
 
     List<List<Integer>> nestedLists = Arrays.asList(
       Arrays.asList(1, 2),
@@ -103,6 +105,12 @@ public class b_stream_intermediate_methods {
       .toList(); // convert from Stream<Integer> to List<Integer>
 
     System.out.println(result);
+
+    //
+    //
+    //
+
+    System.out.println(Arrays.asList(1, 2, 3, 4, 5).stream().skip(2).toList());
   }
 
   public static void main(String[] args) {

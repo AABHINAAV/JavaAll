@@ -3,7 +3,6 @@ package b_java_se_8.d_stream_api;
 import java.util.Arrays;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class i_string_joinger {
 

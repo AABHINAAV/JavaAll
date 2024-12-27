@@ -20,7 +20,7 @@ public class j_find_vowels_and_frequency {
     System.out.println("\nvowels count :" + count);
   }
 
-  public static void countFrequency() {
+  public static void countFrequency1() {
     String str = "hello hello";
 
     // method 1
@@ -61,8 +61,8 @@ public class j_find_vowels_and_frequency {
   }
 
   public static void main(String[] args) {
-    findVowels();
-    countFrequency();
-    countFrequency2();
+    // findVowels();
+    countFrequency1();
+    // countFrequency2();
   }
 }

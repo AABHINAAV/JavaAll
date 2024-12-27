@@ -1,4 +1,4 @@
-package b_java_se_8.e_Multithreading;
+package b_java_se_8.e_Multithreading.a_base;
 
 public class e12_3_thread_methods extends Thread {
 

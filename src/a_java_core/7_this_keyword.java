@@ -2,6 +2,15 @@ class Result {
 
   int x = 10;
 
+  Result() {
+    System.out.println("constuctor called");
+  }
+
+  Result(String str) {
+    this();
+    System.out.println(str);
+  }
+
   void display() {
     System.out.println("hello");
   }
@@ -14,7 +23,9 @@ class Result {
   }
 
   public static void main(String[] args) {
-    Result obj = new Result();
-    obj.fun(20);
+    Result obj1 = new Result();
+    obj1.fun(20);
+
+    Result obj2 = new Result("hello");
   }
 }
