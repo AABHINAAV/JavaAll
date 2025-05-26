@@ -9,7 +9,7 @@ public class e12_3_thread_methods extends Thread {
       Thread.yield();
       //   A hint to the scheduler that the current thread is willing to
       //   yield(pause) its current use of a processor.
-      //   The processor can use of another thread meanwhile.
+      //   The processor can use another thread meanwhile.
       //   The scheduler is free to ignore this hint.
     }
   }

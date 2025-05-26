@@ -45,6 +45,14 @@ public class j_find_vowels_and_frequency {
         Collectors.groupingBy(Function.identity(), Collectors.counting())
       );
     System.out.println(res2.toString());
+
+    // Map<String, List<String>> result = Arrays
+    //   .stream(str.split(""))
+    //   .filter(e -> !e.equals(" "))
+    //   .collect(
+    //     Collectors.groupingBy(Function.identity())
+    //   );
+    //   System.out.println(result);
   }
 
   public static void countFrequency2() {

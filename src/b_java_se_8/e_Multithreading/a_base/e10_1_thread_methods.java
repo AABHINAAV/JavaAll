@@ -7,7 +7,7 @@ public class e10_1_thread_methods extends Thread {
 
   public static void main(String[] args) throws InterruptedException {
     Thread.currentThread();
-    // returns instance of current thread
+    // returns instance of main current thread
 
     e10_1_thread_methods thread = new e10_1_thread_methods();
 

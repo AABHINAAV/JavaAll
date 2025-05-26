@@ -1,6 +1,7 @@
 package b_java_se_8.d_stream_api;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,10 +40,9 @@ public class c_stream_terminal_methods {
 
     Optional<Integer> minNumber = numbers
       .stream()
-      .min((i, j) -> j.compareTo(i));
+      .min((i, j) -> i.compareTo(j));
     // it returns the 1st element from the stream obtained from comparator result
-    // max of stream api works same but returns the last element
-    // comparator is sorting in descending order
+    // comparator is sorting in ascending order
 
     minNumber.ifPresent(minNum -> System.out.println(minNum));
   }
@@ -53,21 +53,20 @@ public class c_stream_terminal_methods {
 
     Optional<Integer> maxNumber = numbers
       .stream()
-      .max((i, j) -> j.compareTo(i));
-    // it returns the 1st element from the stream obtained from comparator result
-    // max of stream api works same but returns the last element
-    // comparator is sorting in descending order
+      .max((i, j) -> i.compareTo(j));
+    // it returns the last element from the stream obtained from comparator result
+    // comparator is sorting in ascending order
 
     maxNumber.ifPresent(maxNum -> System.out.println(maxNum));
   }
 
   public static void main(String[] args) {
-    terminal_reduce_();
+    // terminal_reduce_();
 
     // terminal_count_();
 
     // terminal_min_();
 
-    // terminal_max_();
+    terminal_max_();
   }
 }

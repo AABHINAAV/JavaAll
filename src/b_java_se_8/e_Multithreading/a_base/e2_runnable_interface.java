@@ -6,9 +6,8 @@ public class e2_runnable_interface {
 
     @Override
     public void run() {
-      Thread cuThread = new Thread();
       for (int i = 0; i < 1000; i++) {
-        System.out.println("created thread : " + cuThread.getName());
+        System.out.println("created thread : " + Thread.currentThread().getName());
       }
     }
   }
@@ -18,9 +17,8 @@ public class e2_runnable_interface {
     Thread thread1 = new Thread(test);
     thread1.start();
 
-    Thread cuThread = new Thread();
     for (int i = 0; i < 1000; i++) {
-      System.out.println("main thread : " + cuThread.getName());
+      System.out.println("main thread : " + Thread.currentThread().getName());
     }
   }
 }

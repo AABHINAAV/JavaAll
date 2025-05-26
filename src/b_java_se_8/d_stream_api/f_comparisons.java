@@ -61,5 +61,22 @@ public class f_comparisons {
       .collect(Collectors.toList());
 
     System.out.println(res4);
+    //
+    //
+    //
+    //
+    //
+    // multiple type comparisons with reversed order
+    List<Employee> res5 = emps
+      .stream()
+      .sorted(
+        Comparator
+          .comparing((Employee e) -> e.getName().length())
+          .thenComparing(Employee::getSalary)
+          .thenComparing(Employee::getJoiningDate)
+          .reversed()
+      )
+      .collect(Collectors.toList());
+    System.out.println("res5 : " + res5);
   }
 }

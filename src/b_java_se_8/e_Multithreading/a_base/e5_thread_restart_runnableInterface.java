@@ -6,8 +6,7 @@ public class e5_thread_restart_runnableInterface {
 
     @Override
     public void run() {
-      Thread cuThread = new Thread();
-      System.out.println("created thread : " + cuThread.getName());
+      System.out.println("created thread : " + Thread.currentThread().getName());
     }
   }
 
@@ -16,7 +15,7 @@ public class e5_thread_restart_runnableInterface {
 
     Thread t1 = new Thread(test);
     t1.start();
-    t1.start();  // illegalThreadStateException
+    // t1.start();  // illegalThreadStateException
 
     Thread t2 = new Thread(test);
     t2.start();

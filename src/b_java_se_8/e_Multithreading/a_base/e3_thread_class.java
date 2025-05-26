@@ -6,9 +6,8 @@ public class e3_thread_class {
 
     @Override
     public void run() {
-      Thread cuThread = new Thread();
       for (int i = 0; i < 1000; i++) {
-        System.out.println("created thread : " + cuThread.getName());
+        System.out.println("created thread : " + Thread.currentThread().getName());
       }
     }
   }
@@ -17,9 +16,8 @@ public class e3_thread_class {
     Test test = new Test();
     test.start();
 
-    Thread cuThread = new Thread();
     for (int i = 0; i < 1000; i++) {
-      System.out.println("main thread : " + cuThread.getName());
+      System.out.println("main thread : " + Thread.currentThread().getName());
     }
   }
 }

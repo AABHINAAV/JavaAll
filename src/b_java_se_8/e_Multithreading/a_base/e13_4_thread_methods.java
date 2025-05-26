@@ -5,9 +5,11 @@ public class e13_4_thread_methods extends Thread {
   @Override
   public void run() {
     try {
-      Thread.currentThread().setName("\nside thread");
+      Thread.currentThread().setName("side thread");
       Thread.sleep(2000);
-      System.out.println(Thread.currentThread().getName());
+      System.out.println(
+        "\nSide thread name : " + Thread.currentThread().getName()
+      );
     } catch (InterruptedException e) {
       System.out.println(e);
     }
@@ -23,6 +25,8 @@ public class e13_4_thread_methods extends Thread {
     // join() tells the main thread to let side thread
     // complete all of its work first
 
-    System.out.println(Thread.currentThread().getName());
+    System.out.println(
+      "Main thread name : " + Thread.currentThread().getName()
+    );
   }
 }

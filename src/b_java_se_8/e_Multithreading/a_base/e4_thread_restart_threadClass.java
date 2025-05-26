@@ -6,8 +6,7 @@ public class e4_thread_restart_threadClass {
 
     @Override
     public void run() {
-      Thread cuThread = new Thread();
-      System.out.println("created thread : " + cuThread.getName());
+      System.out.println("created thread : " + Thread.currentThread().getName());
     }
   }
 

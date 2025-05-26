@@ -92,8 +92,8 @@ public class b_stream_intermediate_methods {
   }
 
   public static void intermediate_skip() {
-    int[] array = new int[10];
-    Arrays.setAll(array, i -> i + 1);
+    int[] array = new int[]{1,2,3,4,5,6,7,8,9,10};
+    // Arrays.setAll(array, i -> i + 1);
 
     System.out.println(array);
 

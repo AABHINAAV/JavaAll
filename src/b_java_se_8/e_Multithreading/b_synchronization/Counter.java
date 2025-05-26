@@ -4,20 +4,22 @@ public class Counter {
 
   private int count = 0;
 
+  // * normal method
   public void increment() {
     count++;
   }
 
-  // * synchronized code
+  // * synchronization using method synchronization
   // public synchronized void increment() {
   //     count++;
   // }
 
-  //   public void increment() {
-  //     synchronized (this) {
-  //       count++;
-  //     }
-  //   }
+  // * synchronization using block synchronization
+    // public void increment() {
+    //   synchronized (this) {
+    //     count++;
+    //   }
+    // }
 
   public int getCount() {
     return count;
