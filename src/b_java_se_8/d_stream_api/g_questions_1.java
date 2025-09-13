@@ -1,7 +1,5 @@
 package b_java_se_8.d_stream_api;
 
-import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -69,25 +67,27 @@ public class g_questions_1 {
     List<Employee> emps = Employee.createData();
 
     // second max salary
-    Optional<Employee> secondMaxSalEmp = emps
+    Employee secondMaxSalEmp = emps
       .stream()
       .sorted((Employee emp1, Employee emp2) ->
         -emp1.getSalary().compareTo(emp2.getSalary())
       )
       // .sorted(Comparator.comparing(Employee::getSalary).reversed())
       .skip(1)
-      .findFirst();
+      .findFirst()
+      .get();
     System.out.println(secondMaxSalEmp);
 
     // second min Salary
-    Optional<Employee> secondMinSalEmp = emps
+    Employee secondMinSalEmp = emps
       .stream()
       .sorted((Employee emp1, Employee emp2) ->
         emp1.getSalary().compareTo(emp2.getSalary())
       )
       // .sorted(Comparator.comparing(Employee::getSalary))
       .skip(1)
-      .findFirst();
+      .findFirst()
+      .get();
     System.out.println(secondMinSalEmp);
     //
     //
@@ -98,21 +98,23 @@ public class g_questions_1 {
     List<Employee> emps = Employee.createData();
 
     // method 1 : by sorting
-    Optional<Employee> res1 = emps
+    Employee res1 = emps
       .stream()
       .sorted((emp1, emp2) ->
         emp1.getJoiningDate().compareTo(emp2.getJoiningDate())
       ) // making comparator
       // .sorted(Comparator.comparing(Employee::getJoiningDate)) // using Comparator class for comparator
-      .findFirst();
+      .findFirst()
+      .get();
     System.out.println(res1);
 
     // method 2 : using min method
-    Optional<Employee> res2 = emps
+    Employee res2 = emps
       .stream()
       .min((Employee emp1, Employee emp2) ->
         emp1.getJoiningDate().compareTo(emp2.getJoiningDate())
-      ); // making comparator
+      )
+      .get(); // making comparator
     // .min(Comparator.comparing(Employee::getJoiningDate));
     System.out.println(res2);
   }

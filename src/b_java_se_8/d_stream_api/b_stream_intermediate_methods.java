@@ -4,17 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class b_stream_intermediate_methods {
-
-  public static void terminal_forEach_() {
-    System.out.println("\nforEach() :-");
-    Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
-    // stream.forEach(e -> System.out.println(e));
-    stream.forEach(System.out::println);
-  }
 
   public static void intermediate_filter_() {
     System.out.println("\nfilter() :-");
@@ -114,7 +106,6 @@ public class b_stream_intermediate_methods {
   }
 
   public static void main(String[] args) {
-    // terminal_forEach_();
 
     // intermediate_filter_();
 

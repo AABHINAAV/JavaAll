@@ -1,7 +1,6 @@
 package b_java_se_8.d_stream_api;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 

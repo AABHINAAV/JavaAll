@@ -18,7 +18,7 @@ public class a_longest_secondLongest_word_in_sentence {
 
     String res2 = Arrays
       .stream(words)
-      .max(Comparator.comparingInt(String::length))
+      .max(Comparator.comparing((String str) -> str.length()))
       .get();
 
     System.out.println("using comparator : " + res2);

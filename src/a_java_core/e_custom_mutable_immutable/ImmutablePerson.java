@@ -1,8 +1,6 @@
 package e_custom_mutable_immutable;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class ImmutablePerson {
@@ -10,18 +8,15 @@ public class ImmutablePerson {
   private final String name;
   private final int age;
   private final Set<String> sports;
-  private final List<String> subjects;
 
   public ImmutablePerson(
     String name,
     int age,
-    Set<String> sports,
-    List<String> subjects
+    Set<String> sports
   ) {
     this.name = name;
     this.age = age;
     this.sports = new HashSet<>(sports);
-    this.subjects = new ArrayList<>(subjects);
   }
 
   public String getName() {
@@ -36,10 +31,6 @@ public class ImmutablePerson {
     return new HashSet<String>(this.sports);
   }
 
-  public List<String> getSubjects() {
-    return new ArrayList<>(this.subjects);
-  }
-
   @Override
   public String toString() {
     return (
@@ -49,8 +40,6 @@ public class ImmutablePerson {
       age +
       ", sports=" +
       sports +
-      ", subjects=" +
-      subjects +
       "]"
     );
   }

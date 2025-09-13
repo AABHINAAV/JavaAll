@@ -78,6 +78,7 @@ public class e_sorting_questions {
       // )  // cannot be invoked on primitive types
       .sorted((emp1, emp2) ->
         Integer.compare(emp1.getName().length(), emp2.getName().length())
+      // Integer.compare(emp2.getName().length(), emp1.getName().length()) // * reversed
       )
       .collect(Collectors.toList());
     // System.out.println("res1 : " + res1);
@@ -89,7 +90,13 @@ public class e_sorting_questions {
     // using comparingInt() to create comparator
     List<Employee> res2 = emps
       .stream()
-      .sorted(Comparator.comparingInt(emp -> emp.getName().length()))
+      // .sorted(Comparator.comparingInt(emp -> emp.getName().length()))
+      .sorted(
+        Comparator.comparing(
+          (Employee emp) -> emp.getName().length(),
+          Comparator.reverseOrder()
+        )
+      ) // * reversed
       .collect(Collectors.toList());
     // System.out.println("res2 : " + res2);
 

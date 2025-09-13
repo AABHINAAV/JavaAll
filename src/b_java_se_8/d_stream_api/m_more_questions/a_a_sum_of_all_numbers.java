@@ -10,11 +10,9 @@ public class a_a_sum_of_all_numbers {
 
     Integer total = list
       .stream() // creating stream
+      .distinct() // distinction
       .reduce(0, (a, b) -> a + b); // reducing to make sum
 
     System.out.println("total : " + total);
-
-    Integer total2 = list.stream().distinct().reduce(Integer::sum).get();
-    System.out.println("total2 : " + total2);
   }
 }

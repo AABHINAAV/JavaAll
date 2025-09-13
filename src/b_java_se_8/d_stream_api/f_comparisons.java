@@ -78,5 +78,31 @@ public class f_comparisons {
       )
       .collect(Collectors.toList());
     System.out.println("res5 : " + res5);
+    //
+    //
+    //
+    //
+    //
+    /*
+     * length in desc
+     * salary in asc
+     * joining date in desc
+     * and then full reversed 😂
+     */
+    List<Employee> res6 = emps  //* List<Employees> */
+      .stream()
+      .sorted(
+        Comparator
+          .comparing((Employee e) -> e.getName().length(), Comparator.reverseOrder())
+          // .thenComparing((Employee e) -> e.getSalary()) //* way 1
+          .thenComparing(Employee::getSalary) //* way 2
+          // .thenComparing((Employee e) -> e.getJoiningDate(), Comparator.reverseOrder()) //* way 1
+          .thenComparing(Employee::getJoiningDate, Comparator.reverseOrder()) //* way 2
+          .reversed()
+      )
+      .skip(1)
+      .limit(2)
+      .collect(Collectors.toList());
+    System.out.println("res6 : " + res6);
   }
 }

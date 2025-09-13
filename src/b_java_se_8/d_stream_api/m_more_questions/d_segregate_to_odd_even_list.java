@@ -3,7 +3,6 @@ package b_java_se_8.d_stream_api.m_more_questions;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class d_segregate_to_odd_even_list {
 
@@ -23,18 +22,19 @@ public class d_segregate_to_odd_even_list {
       .collect(Collectors.toList()); // collecting in list
 
     System.out.println("odds : " + evenNumbers);
-  }
 
-  public static void main(String[] args) {
-    List<List<Integer>> result = IntStream
-      .rangeClosed(1, 10)
-      .boxed()
-      .collect(Collectors.groupingBy(n -> n % 2 == 0, Collectors.toList()))
+    List<List<Integer>> res = list
+      .stream()
+      .collect(Collectors.groupingBy(n -> n & 1))
       .entrySet()
       .stream()
       .map(singleSet -> singleSet.getValue())
       .collect(Collectors.toList());
 
-    System.out.println(result);
+    System.out.println("Result : " + res);
+  }
+
+  public static void main(String[] args) {
+    printing_odd_even();
   }
 }

@@ -19,16 +19,38 @@ public class g_questions_2 {
           Employee::getGender,
           Collectors.reducing(
             BinaryOperator.maxBy(
-              Comparator.comparingDouble(Employee::getSalary)
+              // Comparator.comparingDouble(Employee::getSalary)
+              Comparator.comparing((Employee e) -> e.getSalary())
             )
           )
         )
       );
 
-      System.out.println(res);
+    System.out.println(res);
+  }
+
+  public static void find_lowest_salary_in_each_gender() {
+    List<Employee> emps = Employee.createData();
+
+    Map<String, Optional<Employee>> res = emps
+      .stream()
+      .collect(
+        Collectors.groupingBy(
+          Employee::getGender,
+          Collectors.reducing(
+            BinaryOperator.minBy(
+              // Comparator.comparingDouble(Employee::getSalary)
+              Comparator.comparing((Employee e) -> e.getSalary())
+            )
+          )
+        )
+      );
+
+    System.out.println(res);
   }
 
   public static void main(String[] args) {
     find_highest_salary_in_each_gender();
+    find_lowest_salary_in_each_gender();
   }
 }

@@ -1,6 +1,6 @@
 package b_java_se_8.d_stream_api.m_more_questions;
 
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -21,7 +21,7 @@ public class e_create_smallest_largest_num_from_arr {
     String largestNumber = IntStream
       .rangeClosed(1, 9) // creating IntStream
       .boxed() // convert to Stream<Integer>
-      .sorted(Collections.reverseOrder()) // sorting
+      .sorted(Comparator.reverseOrder()) // sorting
       .map(String::valueOf) // convert to Stream<String>
       .collect(Collectors.joining("")); // collect to String
 

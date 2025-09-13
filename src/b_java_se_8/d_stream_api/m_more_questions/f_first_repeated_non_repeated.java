@@ -1,5 +1,6 @@
 package b_java_se_8.d_stream_api.m_more_questions;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,29 +15,28 @@ public class f_first_repeated_non_repeated {
   public static void method1_by_creating_map() {
     String str = "hello world";
 
-    Map<Character, Long> charFreq = str
-      .chars()
-      .mapToObj(e -> (char) e)
+    Map<String, Long> charFreq = Arrays
+      .stream(str.split(""))
+      .filter(ch -> !ch.equals(" "))
       .collect(
         Collectors.groupingBy(
           Function.identity(),
-          LinkedHashMap::new, // added so to maintain the order of character
+          LinkedHashMap::new, // added so to maintain the order of String
           Collectors.counting()
         )
       );
 
-    Optional<Character> firstNonRepeating = charFreq
+    String firstNonRepeating = charFreq
       .entrySet()
       .stream()
       .filter(e -> e.getValue() == 1)
-      .map(e -> e.getKey())
-      .findFirst();
+      .findFirst()
+      .get()
+      .getKey();
 
-    if (firstNonRepeating.isPresent()) {
-      System.out.println(firstNonRepeating);
-    }
+    System.out.println("\n\n" + firstNonRepeating);
 
-    Optional<Character> firstRepeating = charFreq
+    Optional<String> firstRepeating = charFreq
       .entrySet()
       .stream()
       .filter(e -> e.getValue() > 1)
@@ -44,7 +44,7 @@ public class f_first_repeated_non_repeated {
       .findFirst();
 
     if (firstRepeating.isPresent()) {
-      System.out.println(firstRepeating);
+      System.out.println("\n\n" + firstRepeating.get());
     }
   }
 
@@ -87,12 +87,12 @@ public class f_first_repeated_non_repeated {
   }
 
   public static void main(String[] args) {
-    // method1_by_creating_map();
+    method1_by_creating_map();
     //
     //
     // method2_by_using_Collections_frequency();
     //
     //
-    method3_by_using_index();
+    // method3_by_using_index();
   }
 }
